@@ -1,16 +1,15 @@
-Tkispell Version 0.16
+Tkispell 
 
-Tkispell is a GUI interface to the GNU ispell program written
-using Perl and the Perl/Tk GUI widget libraries.
+
+Tkispell is a Perl/Tk user interface to the GNU ispell program.
 
 
 INSTALLATION
 
 First make sure that GNU ispell is installed and works correctly on
-your system.  You can't install or use tkispell otherwise.  Period.
-Ispell is at: ftp://ftp.gnu.org/ispell/, or in package format for many
-unices.  Make sure that it is working correctly by spell checking a
-file using the command line interface.
+your system.  Ispell is at: ftp://ftp.gnu.org/ispell/, or in package
+format for many Unixes.  Make sure that it is working correctly by
+spell checking a file using the command line interface.
 
 Then, follow the normal installation for Perl modules.
 
@@ -21,39 +20,11 @@ Then, follow the normal installation for Perl modules.
 
 There are a few options at the start of the tkispell script
 that you can edit, namely, the X11 font (which must be
-a X Logical Font Descriptor.  Refer to the xlsfonts man page
+a X Logical Font Descriptor.  Refer to the xlsfonts(1) man page
 for an explanation), and the name of your personal dictionary.
 
-USAGE 
-
-tkispell accepts one optional command line argument: the name of the
-file to be checked.  If you do not provide the name of the file on the
-command line, you can open a file by clicking on the Browse... button
-and selecting a file in the file selection widget.
-
-Clicking on the "Check" button starts the spell check.  You'll see the
-first misspelled word selected in the text box near the top of the
-window, and the misspelled word entered in the entry box near the 
-lower right of the window.  If ispell can guess at any replacement
-words, those are listed on the left side of the window.  
-
-The four buttons on the right side of the window provide the
-actions that you can take for each misspelled word: 
-
-- Accept: Don't change the word and move to the next misspelled
-  word.
-- Add: Add the misspelled word to your personal dictionary.
-- Replace: Replace this instance of the misspelled word with 
-  the correct word in the Entry box.
-- Replace All:  Replace all instances of the misspelled word 
-  with the corrected word in the entry box.
-
-You can end the spell check at any point by clicking on the 
-"Close" button.  Tkispell will ask you if you want to save the
-spell checked file, renaming the original file with a ".bak"
-extension if you click on "Ok" in the dialog box.  Then tkispell
-will ask if you want to add the corrected words to your personal
-dictionary.  Click on "Ok" or "Cancel."
+A description of the program's functions is contained in the program's
+manual page: tkispell(1).
 
 
 TROUBLESHOOTING
@@ -68,3 +39,5 @@ isn't in either place, try using the output of "which perl."
 
 Tkispell is licensed under the same terms as Perl.  Please
 refer to the file "Artistic."  
+
+$Id: README,v 1.3 2004/02/28 21:35:08 kiesling Exp $

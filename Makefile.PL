@@ -12,9 +12,7 @@ if (($ispell_bin =~ /no ispell/) || (length($ispell_bin) == 0)) {
 
 WriteMakefile (NAME => 'Tk::SimpleFileSelect');
 
-WriteMakefile(  ABSTRACT => 'GUI dialog for ispell.',
-               AUTHOR => 'Robert Kiesling <rkiesling@earthlink.net>' ,
-	       NAME => 'tkispell',
-	       VERSION_FROM => 'tkispell',
-		EXE_FILES => ['tkispell']
-	       );
+WriteMakefile(AUTHOR => 'Robert Kiesling, rkies@cpan.org' ,
+	      NAME => 'tkispell',
+	      VERSION_FROM => 'tkispell',
+	      EXE_FILES => ['tkispell'] );
