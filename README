@@ -1,4 +1,4 @@
-Tkispell Version 0.13
+Tkispell Version 0.11
 
 Tkispell is a GUI interface to the GNU ispell program written
 in Perl and the Perl/Tk widget libraries.
@@ -17,10 +17,8 @@ aren't you?), you will need to install the Tk-SimpleFileSelect
 widget if it isn't already installed on your system.  You'll
 need to be able to log in as root:
 
-1.  Change to the Tk-SimpleFileSelect directory and build the 
-    Makefile:
+1.  Build the Makefile:
 
-  $ cd Tk-SimpleFileSelect-<version>
   $ perl Makefile.PL
 
 2.  Build the library module and documentation:
@@ -41,17 +39,17 @@ system configuration:
     interpreter.  Usually it's "/usr/bin/perl" or 
     "/usr/local/bin/perl."  If neither of these work,
     use the output of the command, "which perl."
-2.  On line 14, set the value of $font to whatever
+2.  On line 6, set the value of $font to whatever
     font you prefer.  The value of $font must be in
     X Logical Font Descriptor (XLFD) format.  Refer to 
     the manual page of "xfontsel" if you're not sure 
     how to specify X Window System fonts.
-3.  Edit line 18 with the full pathname of the ispell
+3.  Edit line 7 with the full pathname of the ispell
     program on your system.  On many systems it will be
     either "/usr/bin/ispell" or "/usr/local/bin/ispell,"
     but if neither of those work, use the pathname that
     is output by the command, "which ispell."
-4.  Edit line 23 with the name of your personal ispell
+4.  Edit line 8 with the name of your personal ispell
     dictionary.  Ispell normally uses the name 
     .ispell_<language> and the dictionary is stored in
     your $HOME directory (which is what the perl 
@@ -103,9 +101,5 @@ extension if you click on "Ok" in the dialog box.  Then tkispell
 will ask if you want to add the corrected words to your personal
 dictionary.  Click on "Ok" or "Cancel."
 
-LICENSE
-
-Tkispell and Tk::SimpleFileSelect are written by 
-rkiesling@mainmatter.com and distributed under the terms
-of the Perl Artistic License.  Please refer to the file
-"Artistic" for details.
+Comments and bug fixes are welcome.  Please send them
+to the author, rkiesling@mainmatter.com.
