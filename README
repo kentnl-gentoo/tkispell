@@ -1,81 +1,35 @@
-Tkispell Version 0.11
+Tkispell Version 0.16
 
 Tkispell is a GUI interface to the GNU ispell program written
-in Perl and the Perl/Tk widget libraries.
+using Perl and the Perl/Tk GUI widget libraries.
+
 
 INSTALLATION
 
-First make sure that GNU ispell is correctly installed on
-your system.  If it isn't you can obtain the source code 
-from ftp://ftp.gnu.org/ispell/, or in package format for 
-many unices.  If necessary, make sure that it's working 
-correctly by spell checking a file using ispell's command
-line interface.
+First make sure that GNU ispell is installed and works correctly on
+your system.  You can't install or use tkispell otherwise.  Period.
+Ispell is at: ftp://ftp.gnu.org/ispell/, or in package format for many
+unices.  Make sure that it is working correctly by spell checking a
+file using the command line interface.
 
-After you've unpacked the archive (you're reading this, 
-aren't you?), you will need to install the Tk-SimpleFileSelect
-widget if it isn't already installed on your system.  You'll
-need to be able to log in as root:
+Then, follow the normal installation for Perl modules.
 
-1.  Build the Makefile:
+    $ perl Makefile.PL
+    $ make
+    $ su
+    # make install
 
-  $ perl Makefile.PL
-
-2.  Build the library module and documentation:
-
-  $ make
-
-3.  Become the superuser and install the module:
-
-  $ su
-  password: <enter the root password>
-  # make install
-
-Then there are three pathnames and one variable that 
-you need to edit in the tkispell program for your 
-system configuration:
-
-1.  Line 1 must contain the full path name of the perl
-    interpreter.  Usually it's "/usr/bin/perl" or 
-    "/usr/local/bin/perl."  If neither of these work,
-    use the output of the command, "which perl."
-2.  On line 6, set the value of $font to whatever
-    font you prefer.  The value of $font must be in
-    X Logical Font Descriptor (XLFD) format.  Refer to 
-    the manual page of "xfontsel" if you're not sure 
-    how to specify X Window System fonts.
-3.  Edit line 7 with the full pathname of the ispell
-    program on your system.  On many systems it will be
-    either "/usr/bin/ispell" or "/usr/local/bin/ispell,"
-    but if neither of those work, use the pathname that
-    is output by the command, "which ispell."
-4.  Edit line 8 with the name of your personal ispell
-    dictionary.  Ispell normally uses the name 
-    .ispell_<language> and the dictionary is stored in
-    your $HOME directory (which is what the perl 
-    variable $ENV{HOME} provides; don't edit that unless
-    you're sure of your personal dictionary's absolute
-    path name).
-
-Finally copy the tkispell program to a directory named by
-the system's $PATH environment variable.  You'll need to 
-be logged in as root to do this.  If you can't log in as 
-root, you can still run tkispell from your $HOME directory;
-simply type:
-
-  $ ./tkispell 
-
-instead of:
-
-  $ tkispell
+There are a few options at the start of the tkispell script
+that you can edit, namely, the X11 font (which must be
+a X Logical Font Descriptor.  Refer to the xlsfonts man page
+for an explanation), and the name of your personal dictionary.
 
 USAGE 
 
-tkispell accepts one optional command line argument: the 
-name of the file to be checked.  If you do not provide the
-name of the file on the command line, you can open a file 
-by clicking on the Browse... button and selecting a file
-in the file selection widget.
+tkispell accepts one optional command line argument: the name of the
+file to be checked.  If you do not provide the name of the file on the
+command line, you can open a file by clicking on the Browse... button
+and selecting a file in the file selection widget.
 
 Clicking on the "Check" button starts the spell check.  You'll see the
 first misspelled word selected in the text box near the top of the
@@ -101,5 +55,16 @@ extension if you click on "Ok" in the dialog box.  Then tkispell
 will ask if you want to add the corrected words to your personal
 dictionary.  Click on "Ok" or "Cancel."
 
-Comments and bug fixes are welcome.  Please send them
-to the author, rkiesling@mainmatter.com.
+
+TROUBLESHOOTING
+
+If tkispell prints an error message like:
+
+  tkispell: file not found
+
+edit the first line of 'tkispell with the path name of the system's
+perl binary, normally /usr/bin/perl or /usr/local/bin/perl.  If perl
+isn't in either place, try using the output of "which perl."
+
+Tkispell is licensed under the same terms as Perl.  Please
+refer to the file "Artistic."  

@@ -2,11 +2,17 @@
 use Tk;
 use Tk::widgets qw(Label Dialog SimpleFileSelect);
 
+$VERSION=0.16;
+
+#
 # Options - edit these for your system.
+#
 my $fn = '*-helvetica-medium-r-*-*-12-*'; # Widget font
-my $ispell_prog = '/usr/local/bin/ispell'; # Ispell program.
 my $hdict = $ENV{HOME}.'/.ispell_english'; # Personal dictionary. 
 
+#my $ispell_prog = '/usr/local/bin/ispell'; # Ispell program.
+my $ispell_prog = `which ispell`;  
+chomp $ispell_prog;
 my ($cw, @misspelledlist, @replacementlist, @addlist, $midx, $matchlength);
 my $ifname = '';
 my $lastmatchindex = '1.0';
@@ -64,6 +70,8 @@ sub save_and_exit {
        -text => "Save $ifname?\nOriginal file will be saved as $ifname.bak.", 
        -bitmap => 'question', -font => $fn, -buttons => [qw/Ok Cancel/], 
        -default_button => 'Ok');
+    $d -> Subwidget ('B_Ok') -> configure (-font => $fn);
+    $d -> Subwidget ('B_Cancel') -> configure (-font => $fn);
     if (($d->Show) =~ /Ok/) {
 	$cw -> Busy;
 	system ('mv', $ifname, "$ifname.bak");
@@ -73,9 +81,11 @@ sub save_and_exit {
 	$cw -> Unbusy;
     }
     $d = $cw -> Dialog (-title => 'Add Words',
-		-text => 'Save corrected words to your personal dictionary?',
+		-text => 'Save new words to your personal dictionary?',
 		-bitmap => 'question', -font => $fn,
 		-buttons => [qw/Ok Cancel/], -default_button => 'Ok');
+    $d -> Subwidget ('B_Ok') -> configure (-font => $fn);
+    $d -> Subwidget ('B_Cancel') -> configure (-font => $fn);
     if (($d->Show) =~ /Ok/) {
 	$cw -> Busy;
 	open OUT, ">>$hdict" or  die "Couldn't add words to $hdict: $!\n";
