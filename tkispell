@@ -14,7 +14,7 @@ my $lang = $ENV{LANG};
 if ($lang =~ /^C$/ || ! defined ($lang)) {$lang = 'default'; }
 my $hdict = $ENV{HOME}."/.ispell_$lang"; # Personal dictionary. 
 
-my $ispell_prog = `which ispell`;  
+my $ispell_prog = `which ispell-aspell`;
 chomp $ispell_prog;
 my ($cw, $b1, @misspelledlist, @replacementlist, @addlist, $midx);
 my $ifname = '';
